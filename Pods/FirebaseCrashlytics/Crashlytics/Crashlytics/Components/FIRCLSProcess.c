@@ -167,7 +167,7 @@ static bool FIRCLSProcessGetThreadState(FIRCLSProcess *process,
                                         thread_t thread,
                                         FIRCLSThreadContext *context) {
   if (!FIRCLSIsValidPointer(context)) {
-    FIRCLSSDKLogError("Invalid context supplied\n");
+    FIRCLSSDKLogError("invalid context supplied");
     return false;
   }
 
@@ -216,14 +216,9 @@ static bool FIRCLSProcessGetThreadState(FIRCLSProcess *process,
 #if !TARGET_OS_WATCH
   // try to get the value by querying the thread state
   mach_msg_type_number_t stateCount = FIRCLSThreadStateCount;
-
-  // For unknown reasons, thread_get_state returns this value on Rosetta,
-  // but still succeeds.
-  const int ROSETTA_SUCCESS = 268435459;
-  kern_return_t status = thread_get_state(thread, FIRCLSThreadState, (thread_state_t)(&(context->__ss)),
-                                   &stateCount);
-  if (status != KERN_SUCCESS && status != ROSETTA_SUCCESS) {
-    FIRCLSSDKLogError("Failed to get thread state via thread_get_state for thread: %i\n", thread);
+  if (thread_get_state(thread, FIRCLSThreadState, (thread_state_t)(&(context->__ss)),
+                       &stateCount) != KERN_SUCCESS) {
+    FIRCLSSDKLogError("failed to get thread state\n");
     return false;
   }
 
@@ -259,7 +254,7 @@ static const char *FIRCLSProcessGetThreadDispatchQueueName(FIRCLSProcess *proces
   infoCount = THREAD_IDENTIFIER_INFO_COUNT;
   if (thread_info(thread, THREAD_IDENTIFIER_INFO, (thread_info_t)&info, &infoCount) !=
       KERN_SUCCESS) {
-    FIRCLSSDKLog("Unable to get thread info\n");
+    FIRCLSSDKLog("unable to get thread info\n");
     return NULL;
   }
 
@@ -395,12 +390,12 @@ static bool FIRCLSProcessRecordThread(FIRCLSProcess *process, thread_t thread, F
   FIRCLSThreadContext context;
 
   if (!FIRCLSProcessGetThreadState(process, thread, &context)) {
-    FIRCLSSDKLogError("Unable to get thread state\n");
+    FIRCLSSDKLogError("unable to get thread state");
     return false;
   }
 
   if (!FIRCLSUnwindInit(&unwindContext, context)) {
-    FIRCLSSDKLog("Unable to init unwind context\n");
+    FIRCLSSDKLog("unable to init unwind context\n");
 
     return false;
   }
@@ -490,7 +485,7 @@ bool FIRCLSProcessRecordAllThreads(FIRCLSProcess *process, FIRCLSFile *file) {
 
     FIRCLSSDKLogInfo("recording thread %d data\n", i);
     if (!FIRCLSProcessRecordThread(process, thread, file)) {
-      FIRCLSSDKLogError("Failed to record thread state. Closing threads JSON to prevent malformed crash report.\n");
+      FIRCLSSDKLogError("Failed to record thread state. Closing threads JSON to prevent malformed crash report.");
 
       FIRCLSFileWriteArrayEnd(file);
 
@@ -503,7 +498,7 @@ bool FIRCLSProcessRecordAllThreads(FIRCLSProcess *process, FIRCLSFile *file) {
 
   FIRCLSFileWriteSectionEnd(file);
 
-  FIRCLSSDKLogInfo("Completed recording all thread data\n");
+  FIRCLSSDKLogInfo("completed recording all thread data\n");
 
   return true;
 }
@@ -551,11 +546,6 @@ void FIRCLSProcessRecordDispatchQueueNames(FIRCLSProcess *process, FIRCLSFile *f
 
     name = FIRCLSProcessGetThreadDispatchQueueName(process, thread);
 
-    // Apple Report Converter will fail to parse this when "name" is null,
-    // so we will use an empty string instead.
-    if (name == NULL) {
-      name = "";
-    }
     FIRCLSFileWriteArrayEntryString(file, name);
   }
 

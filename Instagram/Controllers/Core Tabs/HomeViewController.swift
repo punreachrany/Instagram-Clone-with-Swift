@@ -9,9 +9,20 @@ import UIKit
 import Firebase
 
 class HomeViewController: UIViewController {
-
+    
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        
+        tableView.register(IGFeedPostTableViewCell.self, forCellReuseIdentifier: IGFeedPostTableViewCell.identifier)
+        
+        return tableView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(tableView)
+        tableView.delegate = self
+        tableView.dataSource = self
         // Do any additional setup after loading the view.
     }
     
@@ -24,14 +35,34 @@ class HomeViewController: UIViewController {
     
     private func handleNotAuthenticated() {
         // Check auth Status
+        
+        
         if Auth.auth().currentUser == nil {
             // Show log in
             let loginVC = LoginViewController()
             loginVC.modalPresentationStyle = .fullScreen
             present(loginVC, animated: false)
         }
+        //        print("=== \(Auth.auth().currentUser)===")
     }
-
-
+    
+    
 }
 
+extension HomeViewController: UITableViewDelegate {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 0
+    }
+}
+
+extension HomeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: IGFeedPostTableViewCell.identifier, for: indexPath)
+        
+        return cell
+    }
+}
