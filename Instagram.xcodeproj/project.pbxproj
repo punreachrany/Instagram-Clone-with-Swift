@@ -45,6 +45,8 @@
 		E0CCCF802658E36000266788 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CCCF7F2658E36000266788 /* PhotoCollectionViewCell.swift */; };
 		E0CCCF822658E48200266788 /* ProfileInfoHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CCCF812658E48200266788 /* ProfileInfoHeaderCollectionReusableView.swift */; };
 		E0CCCF842658E4A700266788 /* ProfileTabsCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CCCF832658E4A700266788 /* ProfileTabsCollectionReusableView.swift */; };
+		E0D3634A265A400900D13CA0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D36349265A400900D13CA0 /* Constants.swift */; };
+		E0D3634C265A433D00D13CA0 /* UserFollowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D3634B265A433D00D13CA0 /* UserFollowTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +92,8 @@
 		E0CCCF7F2658E36000266788 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		E0CCCF812658E48200266788 /* ProfileInfoHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		E0CCCF832658E4A700266788 /* ProfileTabsCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabsCollectionReusableView.swift; sourceTree = "<group>"; };
+		E0D36349265A400900D13CA0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E0D3634B265A433D00D13CA0 /* UserFollowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFollowTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +212,7 @@
 				E0447BC1263E9B35002094A1 /* AuthManager.swift */,
 				E0447BC3263E9B67002094A1 /* StorageManager.swift */,
 				E0CCCF6A2658E09800266788 /* Extensions.swift */,
+				E0D36349265A400900D13CA0 /* Constants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 				E0CCCF742658E27C00266788 /* HomeFeeds */,
 				E0CCCF7D2658E32B00266788 /* FormTableViewCell.swift */,
 				E0CCCF7F2658E36000266788 /* PhotoCollectionViewCell.swift */,
+				E0D3634B265A433D00D13CA0 /* UserFollowTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -388,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0CCCF7A2658E2E900266788 /* IGFeedPostActionTableViewCell.swift in Sources */,
+				E0D3634A265A400900D13CA0 /* Constants.swift in Sources */,
 				E089EB47263E8F4800C2E690 /* EditProfileViewController.swift in Sources */,
 				E089EB34263E8DB500C2E690 /* ExploreViewController.swift in Sources */,
 				E089EB53263E8FB900C2E690 /* PublishPostViewController.swift in Sources */,
@@ -416,6 +423,7 @@
 				E0CCCF6F2658E1C200266788 /* UserPost.swift in Sources */,
 				E089EB1D263E8BE600C2E690 /* SceneDelegate.swift in Sources */,
 				E089EB4B263E8F6E00C2E690 /* ListViewController.swift in Sources */,
+				E0D3634C265A433D00D13CA0 /* UserFollowTableViewCell.swift in Sources */,
 				E0CCCF6D2658E18500266788 /* SettingCellModel.swift in Sources */,
 				E0CCCF7C2658E30200266788 /* IGFeedPostGeneralTableViewCell.swift in Sources */,
 				E089EB49263E8F5900C2E690 /* SettingsViewController.swift in Sources */,
