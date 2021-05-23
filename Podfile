@@ -9,6 +9,7 @@ target 'Instagram' do
   
   # App rating prompt
   pod 'Appirater'
+#  pod 'SDWebImage'
   
   # Firebase
   pod 'Firebase/Core'
