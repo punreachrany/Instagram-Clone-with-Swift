@@ -11,6 +11,7 @@ import UIKit
 final class ProfileViewController: UIViewController {
     
     private var collectionView: UICollectionView?
+    
     private var userPosts = [UserPost]()
 
     override func viewDidLoad() {
@@ -161,14 +162,26 @@ extension ProfileViewController: ProfileInfoHeaderCollectionReusableViewDelegate
     }
     
     func profileHeaderDidTapFollowersButton(_ header: ProfileInfoHeaderCollectionReusableView) {
-        let vc = ListViewController(data: ["Punreach", "Punrong", "Punmonineath"])
+        
+        var mockData = [UserRelationship]()
+        for x in 0..<10 {
+            mockData.append(UserRelationship(username: "@punreach", name: "Punreach Rany", type: x % 2 == 0 ? .following : .not_following))
+        }
+        
+        let vc = ListViewController(data: mockData)
+        
         vc.title = "Followers"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }
     
     func profileHeaderDidTapFollowingButton(_ header: ProfileInfoHeaderCollectionReusableView) {
-        let vc = ListViewController(data: ["Punreach", "Punrong", "Punmonineath"])
+        var mockData = [UserRelationship]()
+        for x in 0..<10 {
+            mockData.append(UserRelationship(username: "@punreach", name: "Punreach Rany", type: x % 2 == 0 ? .following : .not_following))
+        }
+        
+        let vc = ListViewController(data: mockData)
         vc.title = "Following"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)

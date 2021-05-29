@@ -8,8 +8,8 @@
 import UIKit
 
 class ListViewController: UIViewController {
-
-    private let data: [String]
+    
+    private var data = [UserRelationship]()
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -18,7 +18,9 @@ class ListViewController: UIViewController {
         return tableView
     }()
     
-    init(data: [String]){
+    //MARK: - Init
+    
+    init(data: [UserRelationship]){
         self.data = data
         super.init(nibName: nil, bundle: nil)
     }
@@ -69,11 +71,33 @@ extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: UserFollowTableViewCell.identifier, for: indexPath) as! UserFollowTableViewCell
         
-        cell.configure(with: "")
+        cell.configure(with: data[indexPath.row])
         
-        cell.textLabel?.text = data[indexPath.row]
+        cell.delegate = self
+        
+//        cell.textLabel?.text = data[indexPath.row]
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75
+    }
+    
+    
+}
+
+
+extension ListViewController: UserFollowTableViewCellDelegate {
+    func didTapFollowUnfollowButton(model: UserRelationship) {
+        switch model.type {
+        case .following:
+            // perform firebase update to unfollow
+            break
+        case .not_following:
+            // perform firebase update to follow
+            break
+        }
     }
     
     
