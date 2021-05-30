@@ -10,10 +10,24 @@ import Firebase
 
 class HomeViewController: UIViewController {
     
+    private var feedRenderModels = [HomeFeedRenderViewModel]()
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         
-        tableView.register(IGFeedPostTableViewCell.self, forCellReuseIdentifier: IGFeedPostTableViewCell.identifier)
+        // Register Cell
+        tableView.register(
+            IGFeedPostTableViewCell.self,
+            forCellReuseIdentifier: IGFeedPostTableViewCell.identifier)
+        tableView.register(
+            IGFeedPostHeaderTableViewCell.self,
+            forCellReuseIdentifier: IGFeedPostHeaderTableViewCell.identifier)
+        tableView.register(
+            IGFeedPostActionTableViewCell.self,
+            forCellReuseIdentifier: IGFeedPostActionTableViewCell.identifier)
+        tableView.register(
+            IGFeedPostGeneralTableViewCell.self,
+            forCellReuseIdentifier: IGFeedPostGeneralTableViewCell.identifier)
         
         return tableView
     }()
@@ -66,3 +80,4 @@ extension HomeViewController: UITableViewDataSource {
         return cell
     }
 }
+

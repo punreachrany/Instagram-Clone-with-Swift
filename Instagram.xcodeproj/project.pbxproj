@@ -19,6 +19,8 @@
 		E07289F8265A0E23004F2F1F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07289F7265A0E23004F2F1F /* User.swift */; };
 		E08248F826635A9300859BA2 /* UserNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08248F726635A9300859BA2 /* UserNotification.swift */; };
 		E08248FA266372B900859BA2 /* FutureCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08248F9266372B900859BA2 /* FutureCall.swift */; };
+		E08248FC26637A9F00859BA2 /* PostRenderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08248FB26637A9F00859BA2 /* PostRenderViewModel.swift */; };
+		E08248FE266382F400859BA2 /* HomeFeedRenderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08248FD266382F400859BA2 /* HomeFeedRenderViewModel.swift */; };
 		E089EB1B263E8BE600C2E690 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E089EB1A263E8BE600C2E690 /* AppDelegate.swift */; };
 		E089EB1D263E8BE600C2E690 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E089EB1C263E8BE600C2E690 /* SceneDelegate.swift */; };
 		E089EB1F263E8BE600C2E690 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E089EB1E263E8BE600C2E690 /* HomeViewController.swift */; };
@@ -69,6 +71,8 @@
 		E07289F7265A0E23004F2F1F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E08248F726635A9300859BA2 /* UserNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotification.swift; sourceTree = "<group>"; };
 		E08248F9266372B900859BA2 /* FutureCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureCall.swift; sourceTree = "<group>"; };
+		E08248FB26637A9F00859BA2 /* PostRenderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRenderViewModel.swift; sourceTree = "<group>"; };
+		E08248FD266382F400859BA2 /* HomeFeedRenderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedRenderViewModel.swift; sourceTree = "<group>"; };
 		E089EB17263E8BE600C2E690 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E089EB1A263E8BE600C2E690 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E089EB1C263E8BE600C2E690 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -223,6 +227,8 @@
 				E07289F7265A0E23004F2F1F /* User.swift */,
 				8C84DBBE265B6ED200DEBD59 /* UserRelationship.swift */,
 				E08248F726635A9300859BA2 /* UserNotification.swift */,
+				E08248FB26637A9F00859BA2 /* PostRenderViewModel.swift */,
+				E08248FD266382F400859BA2 /* HomeFeedRenderViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -285,7 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				8C84DBC5265B76D000DEBD59 /* Notifications */,
-				E0CCCF742658E27C00266788 /* HomeFeeds */,
+				E0CCCF742658E27C00266788 /* HomeFeeds and Post */,
 				E0CCCF7D2658E32B00266788 /* FormTableViewCell.swift */,
 				E0CCCF7F2658E36000266788 /* PhotoCollectionViewCell.swift */,
 				E0D3634B265A433D00D13CA0 /* UserFollowTableViewCell.swift */,
@@ -293,7 +299,7 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		E0CCCF742658E27C00266788 /* HomeFeeds */ = {
+		E0CCCF742658E27C00266788 /* HomeFeeds and Post */ = {
 			isa = PBXGroup;
 			children = (
 				E0CCCF752658E2B000266788 /* IGFeedPostTableViewCell.swift */,
@@ -301,7 +307,7 @@
 				E0CCCF792658E2E900266788 /* IGFeedPostActionTableViewCell.swift */,
 				E0CCCF7B2658E30200266788 /* IGFeedPostGeneralTableViewCell.swift */,
 			);
-			path = HomeFeeds;
+			path = "HomeFeeds and Post";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -449,10 +455,12 @@
 				E0447BC2263E9B35002094A1 /* AuthManager.swift in Sources */,
 				8C84DBC7265B76EE00DEBD59 /* NotificationFollowEventTableViewCell.swift in Sources */,
 				E089EB1B263E8BE600C2E690 /* AppDelegate.swift in Sources */,
+				E08248FE266382F400859BA2 /* HomeFeedRenderViewModel.swift in Sources */,
 				E0CCCF6F2658E1C200266788 /* UserPost.swift in Sources */,
 				E089EB1D263E8BE600C2E690 /* SceneDelegate.swift in Sources */,
 				E089EB4B263E8F6E00C2E690 /* ListViewController.swift in Sources */,
 				E0D3634C265A433D00D13CA0 /* UserFollowTableViewCell.swift in Sources */,
+				E08248FC26637A9F00859BA2 /* PostRenderViewModel.swift in Sources */,
 				8C84DBBF265B6ED200DEBD59 /* UserRelationship.swift in Sources */,
 				E0CCCF6D2658E18500266788 /* SettingCellModel.swift in Sources */,
 				8C84DBCB265B76FD00DEBD59 /* NotificationLikeEventTableViewCell.swift in Sources */,

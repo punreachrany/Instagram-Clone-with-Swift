@@ -54,10 +54,6 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         }
     }
     
-//    public func getImageData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-//        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
-//    }
-    
     public func configure(debug imageName: String) {
         photoImageView.image = UIImage(named: imageName)
     }
