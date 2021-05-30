@@ -43,7 +43,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     public func configure(with model: UserPost) {
         let url = model.thumbnailImage
 //        photoImageView.sd_setImage(with: url, completed: nil)
-        getImageData(from: url) { data, response, error in
+        FutureCall().getImageData(from: url) { data, response, error in
             guard let data = data, error == nil else {
                 return
             }
@@ -54,9 +54,9 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    public func getImageData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
-    }
+//    public func getImageData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+//        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+//    }
     
     public func configure(debug imageName: String) {
         photoImageView.image = UIImage(named: imageName)
